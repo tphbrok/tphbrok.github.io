@@ -4,18 +4,6 @@ import { shield } from "@kindspells/astro-shield";
 import mdx from "@astrojs/mdx";
 
 export default defineConfig({
-  integrations: [
-    tailwind(),
-    mdx(),
-    shield({
-      securityHeaders: {
-        contentSecurityPolicy: {
-          cspDirectives: {
-            "script-src": "self gc.zgo.at",
-          },
-        },
-      },
-    }),
-  ],
+  integrations: [tailwind(), mdx(), shield({})],
   site: "https://tphbrok.github.io",
 });

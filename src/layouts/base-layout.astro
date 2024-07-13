@@ -15,6 +15,10 @@ const { pageTitle } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src-elem 'self' 'unsafe-inline' https://gc.zgo.at/count.js"
+    />
     <title>{pageTitle}</title>
     <script
       is:inline
