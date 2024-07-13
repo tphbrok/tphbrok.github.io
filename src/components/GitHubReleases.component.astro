@@ -23,7 +23,7 @@ const downloads = (releaseData.assets ?? []).map((asset) => ({
     hasReleaseData ? (
         <div>
             Latest version: <a href={latestVersionUrl}>{latestVersion}</a>
-            (published on {publishedOn.toLocaleDateString()})
+            (published {publishedOn.toISOString().split("T")[0]})
             <br />
             <br />
             <table class="w-full">
