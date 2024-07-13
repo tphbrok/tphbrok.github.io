@@ -8,34 +8,33 @@ tags: rust, audio plug-in
 import { Image } from "astro:assets";
 import beatrecScreenshot from "./assets/_beatrec-screenshot.png";
 import Alert from "../../../components/Alert.component.astro";
+import GitHubReleases from "../../../components/GitHubReleases.component.astro";
 
-<i>Beatrec</i> is an open source minimalistic rolling sampler, recording either a
-single beat or whatever range is set to loop in the DAW (assuming the DAW correctly
-passes this information on to the plug-in).
+<i>Beatrec</i> is an open source minimalistic rolling sampler, recording either
+a single beat or whatever range is set to loop in the DAW (assuming the DAW
+correctly passes this information on to the plug-in).
 
 <Image src={beatrecScreenshot} alt="Beatrec screenshot" />
 
 # List of features
 
-- Displays the last recording and allows exporting it (in 16-bit stereo WAV format)
-- Overwrites the last recording <i>after</i> the recording range has elapsed (so no more half-overwritten recordings when stopping a loop)
+-   Displays the last recording and allows exporting it (in 16-bit stereo WAV format)
+-   Overwrites the last recording <i>after</i> the recording range has elapsed (so no more half-overwritten recordings when stopping a loop)
 
 # Download
 
-<Alert>
-  <b>Disclaimer:</b> Since I'm only scraping the surface of audio plug-in
-  development with <i>Beatrec</i>, I can not (yet) guarantee that this plug-in
-  and future versions will not break your projects or crash your DAW. Hopefully
-  I'll gather enough experience in the future to be able to guarantee a stable
-  piece of software, but not for now. Nevertheless, I highly doubt anything bad
-  happening to your system.
-  <br />
-  <b>Conclusion: it's a low risk but it's your own risk!</b>
-</Alert>
-
+<GitHubReleases repository={"tphbrok/beatrec"} />
 <br />
-
-Downloads are available on [GitHub](https://github.com/tphbrok/beatrec/releases/latest).
+<Alert>
+    <b>Disclaimer:</b> Since I'm only scraping the surface of audio plug-in
+    development with <i>Beatrec</i>, I can not (yet) guarantee that this plug-in
+    and future versions will not break your projects or crash your DAW.
+    Hopefully I'll gather enough experience in the future to be able to
+    guarantee a stable piece of software, but not for now. Nevertheless, I
+    highly doubt anything bad happening to your system.
+    <br />
+    <b>Conclusion: it's a low risk but it's your own risk!</b>
+</Alert>
 
 # Installation instructions
 

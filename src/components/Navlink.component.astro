@@ -1,7 +1,7 @@
 ---
 interface Props {
-  pathname: string;
-  href: string;
+    pathname: string;
+    href: string;
 }
 
 const { pathname, href } = Astro.props;
@@ -11,8 +11,7 @@ const isActive = isHome || (href !== "/" && pathname.startsWith(href));
 ---
 
 <a
-  class={`block hover:cursor-pointer ${isActive ? `underline` : `hover:underline`}`}
-  href={href}
->
-  <slot />
+    class={`block hover:cursor-pointer ${isActive ? `underline` : `hover:underline`}`}
+    href={href}>
+    <slot />
 </a>

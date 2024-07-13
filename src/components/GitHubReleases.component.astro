@@ -1,0 +1,59 @@
+---
+import type { Endpoints } from "@octokit/types";
+
+const { repository } = Astro.props;
+
+const releaseData = (await (
+    await fetch(`https://api.github.com/repos/${repository}/releases/latest`)
+).json()) as Endpoints["GET /repos/{owner}/{repo}/releases/latest"]["response"]["data"];
+
+const hasReleaseData = !!releaseData.name;
+
+const latestVersion = releaseData.name;
+const latestVersionUrl = releaseData.html_url;
+const publishedOn = new Date(releaseData.published_at!);
+const downloads = (releaseData.assets ?? []).map((asset) => ({
+    name: asset.name,
+    size: asset.size,
+    downloadUrl: asset.browser_download_url,
+}));
+---
+
+{
+    hasReleaseData ? (
+        <div>
+            Latest version:{" "}
+            <b>
+                <a href={latestVersionUrl}>{latestVersion}</a> (published on{" "}
+                {publishedOn.toLocaleDateString()})
+            </b>
+            <br />
+            <br />
+            <table class="w-full">
+                <thead>
+                    <tr class="[&>th]:text-left">
+                        <th>Filename</th>
+                        <th>Size</th>
+                        <th />
+                    </tr>
+                </thead>
+                {downloads.map((download) => (
+                    <tr>
+                        <td>{download.name}</td>
+                        <td>{(download.size / 1e6).toPrecision(3)} MB</td>
+                        <td class="text-right">
+                            <a href={download.downloadUrl}>Download</a>
+                        </td>
+                    </tr>
+                ))}
+            </table>
+        </div>
+    ) : (
+        <div>
+            Downloads are available on
+            <a href={`https://github.com/${repository}/releases/latest`}>
+                GitHub
+            </a>
+        </div>
+    )
+}

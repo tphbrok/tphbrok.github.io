@@ -1,16 +1,16 @@
 ---
 interface Props {
-  href: string;
-  tags: string;
-  title: string;
+    href: string;
+    tags: string;
+    title: string;
 }
 const { href, tags, title } = Astro.props;
 ---
 
 <div class="p-4 bg-cyan-950/30 flex flex-col gap-y-2">
-  <a href={href} class="text-3xl font-medium">{title}</a>
-  <slot />
-  <div class="pt-4 flex gap-x-2 [&>div]:px-2 [&>div]:bg-cyan-950/100">
-    {tags.split(",").map((tag: string) => <div>{tag}</div>)}
-  </div>
+    <a href={href} class="text-3xl font-medium">{title}</a>
+    <slot />
+    <div class="pt-4 flex gap-x-2 [&>div]:px-2 [&>div]:bg-cyan-950/100">
+        {tags.split(",").map((tag: string) => <div>{tag}</div>)}
+    </div>
 </div>
