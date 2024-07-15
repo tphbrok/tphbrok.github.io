@@ -6,7 +6,6 @@ tags: rust, audio plug-in
 ---
 
 import { Image } from "astro:assets";
-import beatrecScreenshot from "./assets/_beatrec-screenshot.png";
 import Alert from "../../../components/Alert.component.astro";
 import GitHubReleases from "../../../components/GitHubReleases.component.astro";
 
@@ -14,7 +13,12 @@ import GitHubReleases from "../../../components/GitHubReleases.component.astro";
 a single beat or whatever range is set to loop in the DAW (assuming the DAW
 correctly passes this information on to the plug-in).
 
-<Image src={beatrecScreenshot} alt="Beatrec screenshot" />
+<Image
+    src="https://raw.githubusercontent.com/tphbrok/beatrec/main/screenshot.png"
+    width="1116"
+    height="386"
+    alt="Beatrec screenshot"
+/>
 
 # List of features
 
